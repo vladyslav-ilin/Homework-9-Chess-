@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+:root {
+	--font-noto:'Noto Sans JP', sans-serif;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+body, html {
+	min-height: 100%;
+	width: 100%;
+	background: #262626;
+	font: 700 28px var(--font-noto);
+	color: #fff;
+}
+.chess{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 900px;
+	height: 900px;
+	background: radial-gradient(circle, rgb(18, 35, 119) 0%, rgb(117, 26, 45) 100%);
+}
+.chess__item{
+	width: 92%;
+	height: 92%;
+	position: absolute;
+	top: 4%;
+	left: 4%;
+	font-size: 0;
+	list-style-type: none;
+	counter-reset: list;
+	background: radial-gradient(circle, rgb(36, 48, 105) 0%, rgb(56, 16, 98) 100%);
+}
+.chess__list{
+	height: 12.5%;
+	position: relative;
+}
+.chess__list::after{
+	content: counter(list);
+	counter-increment: list;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: -3%;
+	font-size: 28px;
+}
+.chess__list:last-child{
+	list-style-type: none;
+	counter-reset: alphabet;
+	position: relative;
+}
+.chess__list:last-child .chess__cell::after{
+	content: counter(alphabet, upper-alpha);
+	counter-increment: alphabet;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -35%;
+	font-size: 28px;
+}
+.chess__list:nth-child(odd) .chess__cell:nth-child(even){
+	background: transparent;
+}
+.chess__list:nth-child(even) .chess__cell:nth-child(odd){
+	background: transparent;
+}
+.chess__cell{
+	position: absolute;
+	width: 12.5%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.7);
+}
+.chess__black::before{
+	background: url('../images/checker-black.png') no-repeat;
+	background-size: cover;
+	cursor: pointer;
+	transition: all .7s ease;
+}
+.chess__black:hover::before,
+.chess__white:hover::before{
+	transform: rotate(360deg) scale(1.2);
+}
+.chess__white::before{
+	background: url('../images/checker-white.png') no-repeat;
+	background-size: cover;
+	cursor: pointer;
+	transition: all .7s ease;
+}
+.chess__black::before,
+.chess__white::before{
+	content: '';
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	top: 10%;
+	left: 10%;
+}
+.chess__cell:nth-child(1){
+	left: 0%;
+}
+.chess__cell:nth-child(2){
+	left: 12.5%;
+}
+.chess__cell:nth-child(3){
+	left: 25%;
+}
+.chess__cell:nth-child(4){
+	left: 37.5%;
+}
+.chess__cell:nth-child(5){
+	left: 50%;
+}
+.chess__cell:nth-child(6){
+	left: 62.5%;
+}
+.chess__cell:nth-child(7){
+	left: 75%;
+}
+.chess__cell:nth-child(8){
+	left: 87.5%;
+}
+Main Styles
